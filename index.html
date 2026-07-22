@@ -1,205 +1,788 @@
-## index.html
-
-```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Praveen Raj Nethagani | Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <title>Praveen Raj Nethagani | Java Full Stack Developer</title>
+
+    <meta name="description"
+        content="Portfolio of Praveen Raj Nethagani - Java Full Stack Developer with AI">
+
+    <meta name="keywords"
+        content="Java, Spring Boot, AI, Portfolio, Full Stack Developer">
+
+    <meta name="author"
+        content="Praveen Raj Nethagani">
+
+    <!-- Google Fonts -->
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- AOS -->
+
+    <link rel="stylesheet"
+        href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+
+    <!-- CSS -->
+
+    <link rel="stylesheet"
+        href="style.css">
+
 </head>
+
 <body>
 
-<!-- ===== NAVBAR ===== -->
+<!--================ Loader ================-->
+
+<div class="loader">
+    <div class="spinner"></div>
+</div>
+
+<!--================ Header ================-->
+
 <header>
-    <nav>
-        <h2 class="logo">Praveen<span>Raj</span></h2>
-        <ul>
-            <li><a href="#home">Home</a></li>
+
+    <nav class="container">
+
+        <div class="logo">
+            Praveen<span>Raj</span>
+        </div>
+
+        <ul class="nav-links">
+
+            <li><a href="#home" class="active">Home</a></li>
+
             <li><a href="#about">About</a></li>
+
+            <li><a href="#education">Education</a></li>
+
             <li><a href="#skills">Skills</a></li>
+
             <li><a href="#projects">Projects</a></li>
+
             <li><a href="#contact">Contact</a></li>
+
         </ul>
+
+        <div class="menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+
     </nav>
+
 </header>
 
-<!-- ===== HERO SECTION ===== -->
+<!--================ HERO SECTION ================-->
+
 <section id="home" class="hero">
-    <div class="hero-content">
-        <h3>Hello, I'm</h3>
-        <h1>Praveen Raj <span>Nethagani</span></h1>
-        <h2>Java Full Stack Developer with AI</h2>
-        <p>
-            Passionate about Java development, Artificial Intelligence, and building
-            scalable web applications with modern technologies.
-        </p>
 
-        <div class="hero-buttons">
-            <a href="#projects" class="btn">View Projects</a>
-            <a href="#contact" class="btn btn-outline">Contact Me</a>
-        </div>
-    </div>
-</section>
+    <div class="container hero-content">
 
-<!-- ===== ABOUT ===== -->
-<section id="about" class="section">
-    <h2>About Me</h2>
-    <div class="about">
-        <p>
-            I am <b>Praveen Raj Nethagani</b>, a B.Tech student specializing in
-            <b>Computer Science and Engineering (Data Science)</b> at
-            <b>Kallam Haranadha Reddy Institute of Technology</b> (2023-2026).
-        </p>
+        <!-- Left -->
 
-        <p>
-            I have a strong interest in <b>Java Full Stack Development</b> and
-            <b>Artificial Intelligence</b>. I enjoy developing responsive web
-            applications, working with databases, and analyzing data to solve
-            real-world problems.
-        </p>
-    </div>
-</section>
+        <div class="hero-text" data-aos="fade-right">
 
-<!-- ===== EDUCATION ===== -->
-<section class="section education">
-    <h2>Education</h2>
+            <p class="hello">👋 Hello, I'm</p>
 
-    <div class="edu-card">
-        <h3>B.Tech - Computer Science & Engineering (Data Science)</h3>
-        <p>Kallam Haranadha Reddy Institute of Technology</p>
-        <span>2023 - 2026</span>
-    </div>
-</section>
+            <h1>
+                Praveen Raj
+                <span>Nethagani</span>
+            </h1>
 
-<!-- ===== SKILLS ===== -->
-<section id="skills" class="section">
-    <h2>Technical Skills</h2>
+            <h2>
+                <span class="typing"></span>
+            </h2>
 
-    <div class="skills-grid">
+            <p class="hero-description">
 
-        <div class="skill-card">
-            <i class="fa-brands fa-java"></i>
-            <h3>Java</h3>
-        </div>
+                Passionate Java Full Stack Developer with AI, focused on
+                building scalable web applications, solving real-world
+                problems, and continuously learning modern technologies.
 
-        <div class="skill-card">
-            <i class="fa-solid fa-database"></i>
-            <h3>MySQL</h3>
-        </div>
-
-        <div class="skill-card">
-            <i class="fa-solid fa-code"></i>
-            <h3>C Programming</h3>
-        </div>
-
-        <div class="skill-card">
-            <i class="fa-brands fa-js"></i>
-            <h3>JavaScript</h3>
-        </div>
-
-        <div class="skill-card">
-            <i class="fa-brands fa-html5"></i>
-            <h3>HTML5</h3>
-        </div>
-
-        <div class="skill-card">
-            <i class="fa-brands fa-css3-alt"></i>
-            <h3>CSS3</h3>
-        </div>
-
-    </div>
-</section>
-
-<!-- ===== PROJECTS ===== -->
-<section id="projects" class="section">
-    <h2>Projects</h2>
-
-    <!-- Project 1 -->
-    <div class="project-card">
-        <h3>Heritage Treasure - UNESCO World Heritage Analysis</h3>
-
-        <p>
-            An in-depth analysis of UNESCO World Heritage Sites using Tableau.
-            The project focuses on data visualization, dashboards, and analytical
-            insights from heritage datasets.
-        </p>
-
-        <div class="tech-stack">
-            <span>HTML5</span>
-            <span>CSS3</span>
-            <span>JavaScript</span>
-            <span>Bootstrap</span>
-            <span>Python</span>
-            <span>Flask</span>
-            <span>Pandas</span>
-            <span>NumPy</span>
-            <span>Tableau</span>
-            <span>Matplotlib</span>
-            <span>SQLite</span>
-            <span>GitHub</span>
-        </div>
-    </div>
-
-    <!-- Project 2 -->
-    <div class="project-card">
-        <h3>TravelGo - Smart Travel Booking Platform</h3>
-
-        <p>
-            A Flask-based travel booking platform that provides hotel booking,
-            food booking, transportation, trip planning, and travel advice,
-            similar to modern travel agency applications.
-        </p>
-
-        <div class="tech-stack">
-            <span>Python</span>
-            <span>Flask</span>
-            <span>HTML</span>
-            <span>CSS</span>
-            <span>JavaScript</span>
-            <span>AWS DynamoDB</span>
-            <span>AWS Cloud</span>
-            <span>Git</span>
-            <span>GitHub</span>
-        </div>
-    </div>
-</section>
-
-<!-- ===== CONTACT ===== -->
-<section id="contact" class="section">
-    <h2>Contact Me</h2>
-
-    <div class="contact-container">
-
-        <div class="contact-item">
-            <i class="fa-solid fa-envelope"></i>
-            <p>
-                <a href="mailto:nethagani.praveenraj@gmail.com">
-                    nethagani.praveenraj@gmail.com
-                </a>
             </p>
+
+            <div class="hero-buttons">
+
+                <a href="#projects" class="btn">
+                    View Projects
+                </a>
+
+                <a href="#contact" class="btn btn-outline">
+                    Contact Me
+                </a>
+
+            </div>
+
+            <div class="social-icons">
+
+                <a href="https://github.com/nethagan/prem.git" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+
+                <a href="https://www.linkedin.com/in/praveen-nethagani-0811b6200" target="_blank">
+
+ target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+
+                <a href="mailto:nethagani.praveenraj@gmail.com">
+                    <i class="fas fa-envelope"></i>
+                </a>
+
+                <a href="tel:+919182734889">
+                    <i class="fas fa-phone"></i>
+                </a>
+
+            </div>
+
         </div>
 
-        <div class="contact-item">
-            <i class="fa-solid fa-phone"></i>
-            <p><a href="tel:+919182734889">+91 9182734889</a></p>
-        </div>
+        <!-- Right -->
 
-        <div class="contact-item">
-            <i class="fa-solid fa-location-dot"></i>
-            <p>Guntur, Andhra Pradesh, India</p>
+        <div class="hero-image" data-aos="fade-left">
+
+            <div class="image-box">
+
+                <img src="images/profile.jpeg"
+                    alt="Praveen Raj Nethagani">
+
+            </div>
+
         </div>
 
     </div>
+
 </section>
 
-<!-- ===== FOOTER ===== -->
-<footer>
-    <p>© 2026 Praveen Raj Nethagani | Java Full Stack Developer with AI</p>
+<!--================ ABOUT ================-->
+
+<section id="about" class="section">
+
+    <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+
+            <h2>About Me</h2>
+
+            <p>Get to know me</p>
+
+        </div>
+
+        <div class="about-container">
+
+            <div class="about-image" data-aos="fade-right">
+
+                <img src="images/profile.png"
+                    alt="Profile">
+
+            </div>
+
+            <div class="about-content" data-aos="fade-left">
+
+                <h3>Java Full Stack Developer with AI</h3>
+
+                <p>
+
+                    I'm <strong>Praveen Raj Nethagani</strong>,
+                    a B.Tech graduate in
+                    <strong>Computer Science and Engineering (Data Science)</strong>
+                    from
+                    <strong>Kallam Haranadha Reddy Institute of Technology</strong>.
+
+                </p>
+
+                <p>
+
+                    I am passionate about Java, Spring Boot,
+                    Artificial Intelligence,
+                    Full Stack Development,
+                    cloud technologies,
+                    and creating responsive web applications.
+
+                </p>
+
+                <div class="about-info">
+
+                    <div>
+                        <h4>Name</h4>
+                        <p>Praveen Raj Nethagani</p>
+                    </div>
+
+                    <div>
+                        <h4>Email</h4>
+                        <p>nethagani.praveenraj@gmail.com</p>
+                    </div>
+
+                    <div>
+                        <h4>Phone</h4>
+                        <p>+91 9182734889</p>
+                    </div>
+
+                    <div>
+                        <h4>Location</h4>
+                        <p>Guntur, Andhra Pradesh</p>
+                    </div>
+
+                </div>
+
+                <a href="#contact" class="btn">
+                    Hire Me
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!--================ EDUCATION ================-->
+
+<section id="education" class="education section">
+
+    <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+
+            <h2>Education</h2>
+
+            <p>My Academic Journey</p>
+
+        </div>
+
+        <div class="timeline">
+
+            <div class="timeline-item" data-aos="fade-up">
+
+                <div class="timeline-icon">
+
+                    <i class="fas fa-graduation-cap"></i>
+
+                </div>
+
+                <div class="timeline-content">
+
+                    <h3>B.Tech</h3>
+
+                    <h4>Computer Science & Engineering</h4>
+
+                    <h5>Specialization: Data Science</h5>
+
+                    <span>2023 - 2026</span>
+
+                    <p>
+
+                        Kallam Haranadha Reddy Institute of Technology,
+                        Guntur, Andhra Pradesh.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!--================ STATS ================-->
+
+<section class="stats">
+
+    <div class="container">
+
+        <div class="stats-grid">
+
+            <div class="stat-card">
+                <h2 class="counter" data-target="2">0</h2>
+                <p>Projects Completed</p>
+            </div>
+
+            <div class="stat-card">
+                <h2 class="counter" data-target="8">0</h2>
+                <p>Technical Skills</p>
+            </div>
+
+            <div class="stat-card">
+                <h2 class="counter" data-target="100">0</h2>
+                <p>Learning Passion</p>
+            </div>
+
+            <div class="stat-card">
+                <h2 class="counter" data-target="2026">0</h2>
+                <p>Graduation Year</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!--================ SKILLS ================-->
+
+<section id="skills" class="skills section">
+
+    <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+
+            <h2>Technical Skills</h2>
+
+            <p>Technologies I Work With</p>
+
+        </div>
+
+        <div class="skills-grid">
+
+            <div class="skill-card">
+                <i class="fab fa-java"></i>
+                <h3>Java</h3>
+                <div class="progress"><span data-width="90%"></span></div>
+            </div>
+
+            <div class="skill-card">
+                <i class="fas fa-leaf"></i>
+                <h3>Spring Boot</h3>
+                <div class="progress"><span data-width="80%"></span></div>
+            </div>
+
+            <div class="skill-card">
+                <i class="fas fa-database"></i>
+                <h3>MySQL</h3>
+                <div class="progress"><span data-width="85%"></span></div>
+            </div>
+
+            <div class="skill-card">
+                <i class="fab fa-html5"></i>
+                <h3>HTML5</h3>
+                <div class="progress"><span data-width="95%"></span></div>
+            </div>
+
+            <div class="skill-card">
+                <i class="fab fa-css3-alt"></i>
+                <h3>CSS3</h3>
+                <div class="progress"><span data-width="90%"></span></div>
+            </div>
+
+            <div class="skill-card">
+                <i class="fab fa-js"></i>
+                <h3>JavaScript</h3>
+                <div class="progress"><span data-width="85%"></span></div>
+            </div>
+
+            <div class="skill-card">
+                <i class="fab fa-python"></i>
+                <h3>Python</h3>
+                <div class="progress"><span data-width="85%"></span></div>
+            </div>
+
+            <div class="skill-card">
+                <i class="fab fa-git-alt"></i>
+                <h3>Git & GitHub</h3>
+                <div class="progress"><span data-width="85%"></span></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!--================ PROJECTS ================-->
+
+<section id="projects" class="projects section">
+
+    <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+
+            <h2>My Projects</h2>
+
+            <p>Recent Work</p>
+
+        </div>
+
+        <div class="projects-grid">
+
+            <!-- Heritage Treasure -->
+
+            <div class="project-card">
+
+                <img src="images/heritage.jpg"
+                     alt="Heritage Treasure">
+
+                <div class="project-content">
+
+                    <h3>Heritage Treasure</h3>
+
+                    <p>
+
+                        An in-depth analysis of UNESCO World Heritage Sites
+                        using Tableau dashboards and data visualization.
+                        Developed analytical dashboards to gain insights from
+                        global heritage datasets.
+
+                    </p>
+
+                    <div class="tech-stack">
+
+                        <span>HTML5</span>
+                        <span>CSS3</span>
+                        <span>JavaScript</span>
+                        <span>Bootstrap</span>
+                        <span>Python</span>
+                        <span>Flask</span>
+                        <span>Pandas</span>
+                        <span>NumPy</span>
+                        <span>Tableau</span>
+                        <span>SQLite</span>
+                        <span>Git</span>
+                        <span>GitHub</span>
+
+                    </div>
+
+                    <div class="project-buttons">
+
+                        <a href="#" class="btn">
+                            Live Demo
+                        </a>
+
+                        <a href="#" class="btn btn-outline">
+                            GitHub
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- TravelGo -->
+
+            <div class="project-card">
+
+                <img src="images/travelgo.jpg"
+                     alt="TravelGo">
+
+                <div class="project-content">
+
+                    <h3>TravelGo</h3>
+
+                    <p>
+
+                        A travel booking platform developed using Flask and AWS.
+                        Users can book hotels, food, transportation,
+                        travel packages, and receive travel recommendations.
+
+                    </p>
+
+                    <div class="tech-stack">
+
+                        <span>Python</span>
+                        <span>Flask</span>
+                        <span>HTML5</span>
+                        <span>CSS3</span>
+                        <span>JavaScript</span>
+                        <span>AWS</span>
+                        <span>DynamoDB</span>
+                        <span>Git</span>
+                        <span>GitHub</span>
+
+                    </div>
+
+                    <div class="project-buttons">
+
+                        <a href="#" class="btn">
+                            Live Demo
+                        </a>
+
+                        <a href="#" class="btn btn-outline">
+                            GitHub
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!--================ CERTIFICATIONS ================-->
+
+<section id="certifications" class="section">
+
+    <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+
+            <h2>Certifications</h2>
+
+            <p>Continuous Learning</p>
+
+        </div>
+
+        <div class="certificate-grid">
+
+            <div class="certificate-card">
+
+                <i class="fas fa-award"></i>
+
+                <h3>Java Programming</h3>
+
+                <p>Core Java Programming Fundamentals</p>
+
+            </div>
+
+            <div class="certificate-card">
+
+                <i class="fas fa-cloud"></i>
+
+                <h3>AWS Cloud Computing</h3>
+
+                <p>Cloud Computing & AWS Fundamentals</p>
+
+            </div>
+
+            <div class="certificate-card">
+
+                <i class="fas fa-chart-line"></i>
+
+                <h3>Data Analytics</h3>
+
+                <p>Python, Tableau & Data Visualization</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!--================ CONTACT ================-->
+
+<section id="contact" class="contact section">
+
+    <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+
+            <h2>Contact Me</h2>
+
+            <p>Let's Work Together</p>
+
+        </div>
+
+        <div class="contact-wrapper">
+
+            <!-- Contact Info -->
+
+            <div class="contact-info">
+
+                <h3>Get In Touch</h3>
+
+                <p>
+
+                    I am looking for opportunities as a Java Full Stack Developer.
+                    Feel free to contact me anytime.
+
+                </p>
+
+                <div class="contact-item">
+
+                    <i class="fas fa-envelope"></i>
+
+                    <span>nethagani.praveenraj@gmail.com</span>
+
+                </div>
+
+                <div class="contact-item">
+
+                    <i class="fas fa-phone"></i>
+
+                    <span>+91 9182734889</span>
+
+                </div>
+
+                <div class="contact-item">
+
+                    <i class="fas fa-location-dot"></i>
+
+                    <span>Guntur, Andhra Pradesh, India</span>
+
+                </div>
+
+                <div class="contact-social">
+
+                    <a href="https://github.com/nethagan" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/praveen-nethagani-0811b6200" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+
+                    <a href="mailto:nethagani.praveenraj@gmail.com">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- Contact Form -->
+
+            <div class="contact-form">
+
+                <form id="contactForm">
+
+                    <input
+                        type="text"
+                        placeholder="Your Name"
+                        required>
+
+                    <input
+                        type="email"
+                        placeholder="Your Email"
+                        required>
+
+                    <input
+                        type="text"
+                        placeholder="Subject"
+                        required>
+
+                    <textarea
+                        rows="6"
+                        placeholder="Your Message"
+                        required></textarea>
+
+                    <button
+                        type="submit"
+                        class="btn">
+
+                        Send Message
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!--================ FOOTER ================-->
+
+<footer class="footer">
+
+    <div class="container">
+
+        <div class="footer-content">
+
+            <h2 class="footer-logo">
+
+                Praveen<span>Raj</span>
+
+            </h2>
+
+            <p>
+
+                Java Full Stack Developer | AI Enthusiast
+
+            </p>
+
+            <div class="footer-social">
+
+                <a href="https://github.com/nethagan" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+
+                <a href="https://www.linkedin.com/in/praveen-nethagani-0811b6200" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+
+                <a href="mailto:nethagani.praveenraj@gmail.com">
+                    <i class="fas fa-envelope"></i>
+                </a>
+
+                <a href="tel:+919182734889">
+                    <i class="fas fa-phone"></i>
+                </a>
+
+            </div>
+
+            <p class="copyright">
+
+                © <span id="year"></span>
+                Praveen Raj Nethagani.
+                All Rights Reserved.
+
+            </p>
+
+        </div>
+
+    </div>
+
 </footer>
 
+<!--================ BACK TO TOP ================-->
+
+<button id="topBtn" title="Back to Top">
+
+    <i class="fas fa-arrow-up"></i>
+
+</button>
+
+<!--================ THEME TOGGLE ================-->
+
+<button class="theme-toggle">
+
+    <i class="fas fa-sun"></i>
+
+</button>
+
+<!--================ JAVASCRIPT LIBRARIES ================-->
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+
+AOS.init({
+
+    duration:1000,
+
+    once:true,
+
+    offset:100
+
+});
+
+</script>
+
+<!-- Main JavaScript -->
+
+<script src="script.js"></script>
+
 </body>
+
 </html>
-```
