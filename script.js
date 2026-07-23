@@ -1,108 +1,42 @@
-/*====================================
-      TYPING ANIMATION
-====================================*/
+// ==============================
+// PORTFOLIO JAVASCRIPT
+// ==============================
 
-const typingElement = document.getElementById("typing");
+// AOS Animation
+AOS.init({
+    duration: 1000,
+    once: true,
+    easing: "ease-in-out"
+});
 
-const professions = [
-    "Java Full Stack Developer",
-    "AI Enthusiast",
-    "Data Science Student",
-    "Python Developer",
-    "Problem Solver"
-];
+// ==============================
+// Sticky Navbar
+// ==============================
 
-let professionIndex = 0;
-let letterIndex = 0;
-let deleting = false;
+const nav = document.querySelector("nav");
 
-function typeEffect() {
+window.addEventListener("scroll", () => {
 
-    const current = professions[professionIndex];
+    if (window.scrollY > 50) {
 
-    if (!deleting) {
-
-        typingElement.textContent = current.substring(0, letterIndex + 1);
-
-        letterIndex++;
-
-        if (letterIndex === current.length) {
-
-            deleting = true;
-
-            setTimeout(typeEffect, 1800);
-
-            return;
-
-        }
+        nav.style.background = "rgba(10,15,30,0.95)";
+        nav.style.boxShadow = "0 10px 30px rgba(0,0,0,.25)";
 
     } else {
 
-        typingElement.textContent = current.substring(0, letterIndex - 1);
-
-        letterIndex--;
-
-        if (letterIndex === 0) {
-
-            deleting = false;
-
-            professionIndex++;
-
-            if (professionIndex >= professions.length) {
-
-                professionIndex = 0;
-
-            }
-
-        }
+        nav.style.background = "rgba(10,15,30,.60)";
+        nav.style.boxShadow = "none";
 
     }
 
-    setTimeout(typeEffect, deleting ? 60 : 120);
+});
 
-}
-
-typeEffect();
-
-
-/*====================================
-        SCROLL REVEAL
-====================================*/
-
-const revealElements = document.querySelectorAll(
-    "section, .project-card, .skill, .education-card"
-);
-
-function revealOnScroll() {
-
-    revealElements.forEach(element => {
-
-        const windowHeight = window.innerHeight;
-
-        const top = element.getBoundingClientRect().top;
-
-        if (top < windowHeight - 120) {
-
-            element.classList.add("active");
-
-        }
-
-    });
-
-}
-
-window.addEventListener("scroll", revealOnScroll);
-
-revealOnScroll();
-
-
-/*====================================
-      ACTIVE NAVIGATION
-====================================*/
+// ==============================
+// Active Navigation
+// ==============================
 
 const sections = document.querySelectorAll("section");
-
-const navLinks = document.querySelectorAll(".nav-links a");
+const navLinks = document.querySelectorAll("nav ul li a");
 
 window.addEventListener("scroll", () => {
 
@@ -110,9 +44,9 @@ window.addEventListener("scroll", () => {
 
     sections.forEach(section => {
 
-        const sectionTop = section.offsetTop - 140;
+        const sectionTop = section.offsetTop - 120;
 
-        if (scrollY >= sectionTop) {
+        if (pageYOffset >= sectionTop) {
 
             current = section.getAttribute("id");
 
@@ -134,56 +68,19 @@ window.addEventListener("scroll", () => {
 
 });
 
+// ==============================
+// Smooth Scroll
+// ==============================
 
-/*====================================
-    NAVBAR BACKGROUND CHANGE
-====================================*/
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
-const navbar = document.querySelector("header");
-
-window.addEventListener("scroll", () => {
-
-    if (window.scrollY > 80) {
-
-        navbar.style.background = "rgba(5,8,22,.92)";
-
-        navbar.style.backdropFilter = "blur(20px)";
-
-        navbar.style.boxShadow =
-            "0 8px 30px rgba(0,0,0,.35)";
-
-    }
-
-    else {
-
-        navbar.style.background =
-            "rgba(10,15,30,.45)";
-
-        navbar.style.boxShadow = "none";
-
-    }
-
-});
-
-
-/*====================================
-      SMOOTH SCROLL
-====================================*/
-
-document.querySelectorAll('a[href^="#"]')
-.forEach(anchor => {
-
-    anchor.addEventListener("click", function(e){
+    anchor.addEventListener("click", function (e) {
 
         e.preventDefault();
 
-        const target = document.querySelector(
-            this.getAttribute("href")
-        );
+        document.querySelector(this.getAttribute("href")).scrollIntoView({
 
-        target.scrollIntoView({
-
-            behavior:"smooth"
+            behavior: "smooth"
 
         });
 
@@ -191,42 +88,131 @@ document.querySelectorAll('a[href^="#"]')
 
 });
 
+// ==============================
+// Counter Animation
+// ==============================
 
-/*====================================
-      SCROLL PROGRESS BAR
-====================================*/
+const counters = document.querySelectorAll("#stats h1");
 
-const progressBar =
-document.getElementById("progressBar");
+const startCounter = () => {
+
+    counters.forEach(counter => {
+
+        const update = () => {
+
+            const target = Number(counter.innerText.replace(/\D/g, ""));
+
+            const current = Number(counter.dataset.count || 0);
+
+            const increment = Math.ceil(target / 60);
+
+            if (current < target) {
+
+                counter.dataset.count = current + increment;
+
+                counter.innerText = current + increment + "+";
+
+                requestAnimationFrame(update);
+
+            } else {
+
+                counter.innerText = target + "+";
+
+            }
+
+        };
+
+        update();
+
+    });
+
+};
+
+let counterStarted = false;
 
 window.addEventListener("scroll", () => {
 
-    const totalHeight =
-        document.documentElement.scrollHeight -
-        document.documentElement.clientHeight;
+    const stats = document.querySelector("#stats");
 
-    const progress =
-        (window.pageYOffset / totalHeight) * 100;
+    if (!stats) return;
 
-    progressBar.style.width = progress + "%";
+    const position = stats.getBoundingClientRect().top;
+
+    if (position < window.innerHeight && !counterStarted) {
+
+        startCounter();
+
+        counterStarted = true;
+
+    }
 
 });
 
-/*====================================
-        BACK TO TOP BUTTON
-====================================*/
+// ==============================
+// Scroll Reveal
+// ==============================
 
-const topBtn = document.getElementById("topBtn");
+const revealElements = document.querySelectorAll(".card,.skill,.project");
+
+const reveal = () => {
+
+    revealElements.forEach(item => {
+
+        const top = item.getBoundingClientRect().top;
+
+        if (top < window.innerHeight - 100) {
+
+            item.classList.add("fade-up");
+
+        }
+
+    });
+
+};
+
+window.addEventListener("scroll", reveal);
+
+reveal();
+
+// ==============================
+// Back To Top Button
+// ==============================
+
+const topBtn = document.createElement("button");
+
+topBtn.innerHTML = "↑";
+
+topBtn.id = "topBtn";
+
+document.body.appendChild(topBtn);
+
+topBtn.style.cssText = `
+position:fixed;
+bottom:25px;
+right:25px;
+width:50px;
+height:50px;
+border:none;
+border-radius:50%;
+background:#7C3AED;
+color:#fff;
+font-size:22px;
+cursor:pointer;
+display:none;
+z-index:999;
+box-shadow:0 8px 20px rgba(0,0,0,.3);
+transition:.3s;
+`;
 
 window.addEventListener("scroll", () => {
 
     if (window.scrollY > 500) {
 
-        topBtn.classList.add("show");
+        topBtn.style.display = "block";
 
     } else {
 
-        topBtn.classList.remove("show");
+        topBtn.style.display = "none";
 
     }
 
@@ -236,195 +222,116 @@ topBtn.addEventListener("click", () => {
 
     window.scrollTo({
 
-        top:0,
+        top: 0,
 
-        behavior:"smooth"
-
-    });
-
-});
-
-
-/*====================================
-        CURSOR GLOW
-====================================*/
-
-const cursorGlow = document.getElementById("cursorGlow");
-
-document.addEventListener("mousemove",(e)=>{
-
-    cursorGlow.style.left = e.clientX + "px";
-
-    cursorGlow.style.top = e.clientY + "px";
-
-});
-
-
-/*====================================
-        3D PROJECT CARD EFFECT
-====================================*/
-
-const cards = document.querySelectorAll(".project-card");
-
-cards.forEach(card=>{
-
-    card.addEventListener("mousemove",(e)=>{
-
-        const rect = card.getBoundingClientRect();
-
-        const x = e.clientX - rect.left;
-
-        const y = e.clientY - rect.top;
-
-        const rotateY = (x - rect.width/2)/20;
-
-        const rotateX = (rect.height/2 - y)/20;
-
-        card.style.transform =
-
-        `perspective(1000px)
-
-        rotateX(${rotateX}deg)
-
-        rotateY(${rotateY}deg)
-
-        scale(1.04)`;
-
-    });
-
-    card.addEventListener("mouseleave",()=>{
-
-        card.style.transform =
-
-        "perspective(1000px) rotateX(0) rotateY(0) scale(1)";
+        behavior: "smooth"
 
     });
 
 });
 
+// ==============================
+// Contact Form Validation
+// ==============================
 
-/*====================================
-        BUTTON RIPPLE EFFECT
-====================================*/
+const form = document.querySelector("form");
 
-const buttons = document.querySelectorAll(".btn,.btn2");
+if (form) {
 
-buttons.forEach(button=>{
+    form.addEventListener("submit", function (e) {
 
-button.addEventListener("click",function(e){
+        e.preventDefault();
 
-const circle = document.createElement("span");
+        const inputs = form.querySelectorAll("input, textarea");
 
-const diameter = Math.max(
+        let valid = true;
 
-this.clientWidth,
+        inputs.forEach(input => {
 
-this.clientHeight
+            if (input.value.trim() === "") {
 
-);
+                input.style.border = "2px solid red";
 
-circle.style.width = diameter+"px";
+                valid = false;
 
-circle.style.height = diameter+"px";
+            } else {
 
-circle.style.left =
+                input.style.border = "2px solid #06B6D4";
 
-e.offsetX-diameter/2+"px";
+            }
 
-circle.style.top =
+        });
 
-e.offsetY-diameter/2+"px";
+        if (valid) {
 
-circle.classList.add("ripple");
+            alert("Thank you! Your message has been submitted.");
 
-const ripple=this.querySelector(".ripple");
+            form.reset();
 
-if(ripple){
+        }
 
-ripple.remove();
+    });
 
 }
 
-this.appendChild(circle);
+// ==============================
+// Mouse Glow Effect
+// ==============================
+
+const glow = document.createElement("div");
+
+glow.style.cssText = `
+position:fixed;
+width:20px;
+height:20px;
+background:#06B6D4;
+border-radius:50%;
+pointer-events:none;
+filter:blur(12px);
+opacity:.7;
+z-index:9999;
+`;
+
+document.body.appendChild(glow);
+
+window.addEventListener("mousemove", e => {
+
+    glow.style.left = e.clientX - 10 + "px";
+
+    glow.style.top = e.clientY - 10 + "px";
 
 });
 
-});
+// ==============================
+// Scroll Progress Bar
+// ==============================
 
+const progress = document.createElement("div");
 
-/*====================================
-        CONTACT FORM
-====================================*/
+progress.style.cssText = `
+position:fixed;
+top:0;
+left:0;
+height:4px;
+background:linear-gradient(to right,#7C3AED,#06B6D4);
+width:0%;
+z-index:9999;
+`;
 
-const form=document.querySelector("form");
+document.body.appendChild(progress);
 
-if(form){
+window.addEventListener("scroll", () => {
 
-form.addEventListener("submit",(e)=>{
+    const scroll = document.documentElement.scrollTop;
 
-e.preventDefault();
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
 
-const name=form.querySelector("input[type=text]").value.trim();
-
-const email=form.querySelector("input[type=email]").value.trim();
-
-const message=form.querySelector("textarea").value.trim();
-
-if(name===""||email===""||message===""){
-
-alert("Please fill all the fields.");
-
-return;
-
-}
-
-const emailPattern=/^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-
-if(!email.match(emailPattern)){
-
-alert("Enter a valid email.");
-
-return;
-
-}
-
-alert("Thank you! Your message has been submitted.");
-
-form.reset();
+    progress.style.width = (scroll / height) * 100 + "%";
 
 });
 
-}
+// ==============================
+// Console Message
+// ==============================
 
-
-/*====================================
-        FLOATING PARTICLES
-====================================*/
-
-const particleContainer=document.getElementById("particles");
-
-for(let i=0;i<40;i++){
-
-const particle=document.createElement("span");
-
-particle.classList.add("particle");
-
-particle.style.left=Math.random()*100+"vw";
-
-particle.style.animationDelay=Math.random()*12+"s";
-
-particle.style.animationDuration=
-
-(8+Math.random()*10)+"s";
-
-particle.style.width=
-
-(3+Math.random()*8)+"px";
-
-particle.style.height=
-
-particle.style.width;
-
-particleContainer.appendChild(particle);
-
-}
+console.log("Portfolio Developed by Praveen Raj Nethagani 🚀");
