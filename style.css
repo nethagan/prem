@@ -1064,6 +1064,54 @@ IMAGE HOVER
 
 }
 
+/*======================
+RESUME
+=======================*/
+
+.resume-card{
+
+    max-width:700px;
+
+    margin:auto;
+
+    text-align:center;
+
+}
+
+.resume-icon{
+
+    font-size:90px;
+
+    color:#ff3b3b;
+
+    margin-bottom:20px;
+
+}
+
+.resume-card h2{
+
+    margin-bottom:15px;
+
+}
+
+.resume-card h4{
+
+    color:var(--secondary);
+
+    margin-bottom:20px;
+
+}
+
+.resume-card p{
+
+    color:var(--gray);
+
+    margin-bottom:25px;
+
+    line-height:1.8;
+
+}
+
 /*==========================================
 RESPONSIVE DESIGN
 ==========================================*/
