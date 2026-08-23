@@ -1282,3 +1282,77 @@ SMOOTH SECTION SPACING
 .resume-btn i{
     font-size:20px;
 }
+
+/* ================= SKILL ICON COLORS ================= */
+
+.skill i {
+    font-size: 55px;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+/* Java */
+.skill:nth-child(1) i {
+    color: #f89820;
+}
+
+/* MySQL */
+.skill:nth-child(2) i {
+    color: #00758f;
+}
+
+/* HTML5 */
+.skill:nth-child(3) i {
+    color: #e34f26;
+}
+
+/* CSS3 */
+.skill:nth-child(4) i {
+    color: #264de4;
+}
+
+/* JavaScript */
+.skill:nth-child(5) i {
+    color: #f7df1e;
+}
+
+/* Bootstrap */
+.skill:nth-child(6) i {
+    color: #7952b3;
+}
+
+/* Python */
+.skill:nth-child(7) i {
+    color: #3776ab;
+}
+
+/* Flask */
+.skill:nth-child(8) i {
+    color: #00c853;
+}
+
+/* Tableau */
+.skill:nth-child(9) i {
+    color: #e97627;
+}
+
+/* Git */
+.skill:nth-child(10) i {
+    color: #f05032;
+}
+
+/* GitHub */
+.skill:nth-child(11) i {
+    color: #ffffff;
+}
+
+/* AWS */
+.skill:nth-child(12) i {
+    color: #ff9900;
+}
+
+/* Hover glow */
+.skill:hover i {
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 10px currentColor);
+}
