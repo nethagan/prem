@@ -1356,3 +1356,126 @@ SMOOTH SECTION SPACING
     transform: scale(1.15);
     filter: drop-shadow(0 0 10px currentColor);
 }
+
+/* =========================================================
+   FINAL FIXES FOR THE SUPPLIED PORTFOLIO HTML
+   ========================================================= */
+
+/* Keep the hero image in the correct place and prevent layout overflow */
+.hero-image {
+    flex: 0 0 42%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: floatImage 5s ease-in-out infinite;
+}
+
+.hero-image img {
+    max-width: 100%;
+}
+
+/* Make the glass-card shine stay behind the card content */
+.card > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Improve project image consistency */
+.project img {
+    display: block;
+}
+
+/* Make resume buttons sit nicely beside each other */
+.resume-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* Ensure the contact form button behaves like a real button */
+button.btn {
+    border: 0;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+/* Keep anchors from being hidden under the fixed navbar */
+#resume {
+    scroll-margin-top: 100px;
+}
+
+/* Desktop/tablet hero sizing */
+@media (min-width: 993px) {
+    .hero-text {
+        min-width: 0;
+    }
+
+    .hero-image {
+        min-width: 320px;
+    }
+}
+
+/* Better mobile navigation for the original HTML */
+@media (max-width: 768px) {
+    nav {
+        padding: 16px 5%;
+    }
+
+    nav ul {
+        display: flex;
+        position: absolute;
+        top: 76px;
+        left: 5%;
+        width: 90%;
+        padding: 18px;
+        flex-direction: column;
+        gap: 8px;
+        background: rgba(10, 15, 30, .96);
+        backdrop-filter: blur(18px);
+        border: 1px solid rgba(255,255,255,.08);
+        border-radius: 18px;
+        box-shadow: var(--shadow);
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 8px 10px;
+    }
+
+    .hero {
+        padding-top: 115px;
+    }
+
+    .hero-image {
+        flex: none;
+        width: 100%;
+    }
+
+    .hero-text h1 {
+        word-break: normal;
+    }
+}
+
+/* Very small screens */
+@media (max-width: 576px) {
+    .hero {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .hero-image img {
+        width: 240px;
+        height: 240px;
+    }
+
+    .resume-btn {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .project-content h3 {
+        font-size: 24px;
+    }
+}
